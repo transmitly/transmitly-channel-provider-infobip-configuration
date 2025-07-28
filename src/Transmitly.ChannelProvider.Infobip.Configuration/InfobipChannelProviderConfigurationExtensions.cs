@@ -14,6 +14,8 @@
 
 using Transmitly.Channel.Configuration;
 using Transmitly.Channel.Configuration.Email;
+using Transmitly.Channel.Configuration.Sms;
+using Transmitly.Channel.Configuration.Voice;
 using Transmitly.ChannelProvider.Infobip.Configuration;
 using Transmitly.ChannelProvider.Infobip.Configuration.Email;
 using Transmitly.ChannelProvider.Infobip.Configuration.Sms;
@@ -52,7 +54,7 @@ namespace Transmitly
 		/// </summary>
 		/// <param name="sms">Sms Channel.</param>
 		/// <returns>Infobip Sms properties.</returns>
-		public static ISmsExtendedChannelProperties Infobip(this IChannel<ISms> sms)
+		public static ISmsExtendedChannelProperties Infobip(this ISmsChannelConfiguration sms)
 		{
 			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.Sms.Adapt(sms);
 		}
@@ -62,7 +64,7 @@ namespace Transmitly
 		/// </summary>
 		/// <param name="voice">Voice Channel.</param>
 		/// <returns>Infobip voice properties.</returns>
-		public static IVoiceExtendedChannelProperties Infobip(this IChannel<IVoice> voice)
+		public static IVoiceExtendedChannelProperties Infobip(this IVoiceChannelConfiguration voice)
 		{
 			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.Voice.Adapt(voice);
 		}
