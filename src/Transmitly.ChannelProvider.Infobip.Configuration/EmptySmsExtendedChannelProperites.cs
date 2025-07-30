@@ -14,23 +14,22 @@
 
 using System;
 using System.Threading.Tasks;
-using Transmitly.Channel.Configuration.Email;
-using Transmitly.Template.Configuration;
+using Transmitly.Channel.Configuration.Sms;
+using Transmitly.ChannelProvider.Infobip.Configuration.Sms;
 
-namespace Transmitly.ChannelProvider.Infobip.Configuration.Email
+namespace Transmitly.ChannelProvider.Infobip.Configuration
 {
-	public interface IEmailExtendedChannelProperties
+	sealed class EmptySmsExtendedChannelProperites : ISmsExtendedChannelProperties
 	{
-		IEmailExtendedChannelProperties Adapt(IEmailChannelConfiguration email);
-		IContentTemplateConfiguration AmpHtml { get; set; }
-		string? ApplicationId { get; set; }
-		string? EntityId { get; set; }
-		bool? IntermediateReport { get; set; }
-		string? NotifyUrl { get; set; }
-		Func<IDispatchCommunicationContext, Task<string?>>? NotifyUrlResolver { get; set; }
-		long? TemplateId { get; set; }
-		bool Track { get; set; }
-		bool? TrackClicks { get; set; }
-		bool? TrackOpens { get; set; }
+		public string? ApplicationId { get; set; }
+		public string? EntityId { get; set; }
+		public string? NotifyUrl { get; set; }
+		public Func<IDispatchCommunicationContext, Task<string?>>? NotifyUrlResolver { get; set; }
+		public long? ValidityPeriod { get; set; }
+
+		public ISmsExtendedChannelProperties Adapt(ISmsChannelConfiguration sms)
+		{
+			return this;
+		}
 	}
 }

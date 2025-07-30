@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transmitly.ChannelProvider.Infobip.Configuration", "src\Transmitly.ChannelProvider.Infobip.Configuration\Transmitly.ChannelProvider.Infobip.Configuration.csproj", "{A9DED6BE-BC48-561F-6D50-3D98BF6B6D99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transmitly.ChannelProvider.Infobip.ConfigurationTests", "src\Transmitly.ChannelProvider.Infobip.ConfigurationTests\Transmitly.ChannelProvider.Infobip.ConfigurationTests.csproj", "{13AE1614-8C78-4F3D-842C-D3C26955B7E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A9DED6BE-BC48-561F-6D50-3D98BF6B6D99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9DED6BE-BC48-561F-6D50-3D98BF6B6D99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9DED6BE-BC48-561F-6D50-3D98BF6B6D99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13AE1614-8C78-4F3D-842C-D3C26955B7E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13AE1614-8C78-4F3D-842C-D3C26955B7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13AE1614-8C78-4F3D-842C-D3C26955B7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13AE1614-8C78-4F3D-842C-D3C26955B7E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

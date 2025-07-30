@@ -12,20 +12,21 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-using System;
-using System.Threading.Tasks;
-using Transmitly.Channel.Configuration.Sms;
+using Transmitly.ChannelProvider.Infobip.Configuration.Sms;
+using Transmitly.ChannelProvider.Infobip.Configuration.Voice;
+using Transmitly.Delivery;
 
-namespace Transmitly.ChannelProvider.Infobip.Configuration.Sms
+namespace Transmitly.ChannelProvider.Infobip.Configuration
 {
-	public interface ISmsExtendedChannelProperties
+	sealed class EmptyDeliveryReportExtendedProprties : IDeliveryReportExtendedProperties
 	{
-		ISmsExtendedChannelProperties Adapt(ISmsChannelConfiguration sms);
+		public ISmsExtendedDeliveryReportProperties Sms { get; } = new EmptySmsExtendedDeliveryReportProperties();
 
-		string? ApplicationId { get; set; }
-		string? EntityId { get; set; }
-		string? NotifyUrl { get; set; }
-		Func<IDispatchCommunicationContext, Task<string?>>? NotifyUrlResolver { get; set; }
-		long? ValidityPeriod { get; set; }
+		public IVoiceExtendedDeliveryReportProperties Voice { get; } = new EmptyVoiceExtendedDeliveryReportProperties();
+
+		public IDeliveryReportExtendedProperties Adapt(DeliveryReport report)
+		{
+			return this;
+		}
 	}
 }

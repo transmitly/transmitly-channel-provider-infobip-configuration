@@ -12,7 +12,6 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-using Transmitly.Channel.Configuration;
 using Transmitly.Channel.Configuration.Email;
 using Transmitly.Channel.Configuration.Sms;
 using Transmitly.Channel.Configuration.Voice;
@@ -78,6 +77,5 @@ namespace Transmitly
 		{
 			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.DeliveryReport.Adapt(deliveryReport);
 		}
-
 	}
 }

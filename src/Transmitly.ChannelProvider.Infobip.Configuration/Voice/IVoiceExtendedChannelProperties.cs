@@ -14,7 +14,6 @@
 
 using System;
 using System.Threading.Tasks;
-using Transmitly.Channel.Configuration;
 using Transmitly.Channel.Configuration.Voice;
 
 namespace Transmitly.ChannelProvider.Infobip.Configuration.Voice

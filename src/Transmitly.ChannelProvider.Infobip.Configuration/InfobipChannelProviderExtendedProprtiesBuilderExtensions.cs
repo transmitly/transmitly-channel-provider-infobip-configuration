@@ -17,27 +17,28 @@ using Transmitly.ChannelProvider.Configuration;
 using Transmitly.ChannelProvider.Infobip.Configuration.Email;
 using Transmitly.ChannelProvider.Infobip.Configuration.Sms;
 using Transmitly.ChannelProvider.Infobip.Configuration.Voice;
-using Transmitly.Util;
 
 namespace Transmitly.ChannelProvider.Infobip.Configuration
 {
 	public static class InfobipChannelProviderExtendedProprtiesBuilderExtensions
 	{
 		private static Type? _smsAdaptorType;
-		internal static ISmsExtendedChannelProperties Sms => Create<ISmsExtendedChannelProperties>(Guard.AgainstNull(_smsAdaptorType));
-
 		private static Type? _voiceAdaptorType;
-		internal static IVoiceExtendedChannelProperties Voice => Create<IVoiceExtendedChannelProperties>(Guard.AgainstNull(_voiceAdaptorType));
-
 		private static Type? _emailAdaptorType;
-		internal static IEmailExtendedChannelProperties Email => Create<IEmailExtendedChannelProperties>(Guard.AgainstNull(_emailAdaptorType));
-
 		private static Type? _deliveryReportAdaptorType;
-		internal static IDeliveryReportExtendedProperties DeliveryReport => Create<IDeliveryReportExtendedProperties>(Guard.AgainstNull(_deliveryReportAdaptorType));
 
-		private static T Create<T>(Type t)
+		internal static ISmsExtendedChannelProperties Sms => Create<ISmsExtendedChannelProperties, EmptySmsExtendedChannelProperites>(_smsAdaptorType);
+
+		internal static IVoiceExtendedChannelProperties Voice => Create<IVoiceExtendedChannelProperties, EmptyVoiceExtendedChannelProperties>(_voiceAdaptorType);
+
+		internal static IEmailExtendedChannelProperties Email => Create<IEmailExtendedChannelProperties, EmptyEmailExtendedChannelProperties>(_emailAdaptorType);
+
+		internal static IDeliveryReportExtendedProperties DeliveryReport => Create<IDeliveryReportExtendedProperties, EmptyDeliveryReportExtendedProprties>(_deliveryReportAdaptorType);
+
+		private static T Create<T, TDefault>(Type? t)
+			where TDefault : T, new()
 		{
-			return (T)Guard.AgainstNull(Activator.CreateInstance(t));
+			return t is null ? new TDefault() : (T)Activator.CreateInstance(t)!;
 		}
 
 		public static ChannelProviderRegistrationBuilder AddSmsExtendedPropertiesAdaptor<T>(this ChannelProviderRegistrationBuilder builder)
@@ -67,6 +68,14 @@ namespace Transmitly.ChannelProvider.Infobip.Configuration
 		{
 			_deliveryReportAdaptorType = typeof(T);
 			return builder;
+		}
+
+		internal static void Reset()
+		{
+			_smsAdaptorType = null;
+			_voiceAdaptorType = null;
+			_emailAdaptorType = null;
+			_deliveryReportAdaptorType = null;
 		}
 	}
 }
