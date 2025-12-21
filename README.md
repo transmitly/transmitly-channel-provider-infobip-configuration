@@ -1,6 +1,6 @@
 # Transmitly.ChannelProvider.Infobip.Configuration
 
-A shared configuration for the Transmitly Infobip channel provider.
+A shared configuration for the Transmitly™ Infobip channel provider.
 
 ### Getting started
 
