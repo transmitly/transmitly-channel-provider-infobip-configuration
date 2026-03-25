@@ -1,4 +1,4 @@
-﻿// ﻿﻿Copyright (c) Code Impressions, LLC. All Rights Reserved.
+﻿// Copyright (c) Code Impressions, LLC. All Rights Reserved.
 //  
 //  Licensed under the Apache License, Version 2.0 (the "License")
 //  you may not use this file except in compliance with the License.
@@ -63,12 +63,16 @@ namespace Transmitly.ChannelProvider.Infobip.Configuration
 			return builder;
 		}
 
-		public static ChannelProviderRegistrationBuilder AddDeliveryReportExtendedProprtiesAdaptor<T>(this ChannelProviderRegistrationBuilder builder)
+		public static ChannelProviderRegistrationBuilder AddDeliveryReportExtendedPropertiesAdaptor<T>(this ChannelProviderRegistrationBuilder builder)
 			where T : class, IDeliveryReportExtendedProperties, new()
 		{
 			_deliveryReportAdaptorType = typeof(T);
 			return builder;
 		}
+
+		public static ChannelProviderRegistrationBuilder AddDeliveryReportExtendedProprtiesAdaptor<T>(this ChannelProviderRegistrationBuilder builder)
+			where T : class, IDeliveryReportExtendedProperties, new() =>
+			AddDeliveryReportExtendedPropertiesAdaptor<T>(builder);
 
 		internal static void Reset()
 		{

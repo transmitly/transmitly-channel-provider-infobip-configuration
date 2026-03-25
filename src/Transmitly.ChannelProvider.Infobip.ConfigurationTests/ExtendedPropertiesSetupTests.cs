@@ -1,4 +1,4 @@
-﻿// ﻿﻿Copyright (c) Code Impressions, LLC. All Rights Reserved.
+﻿// Copyright (c) Code Impressions, LLC. All Rights Reserved.
 //  
 //  Licensed under the Apache License, Version 2.0 (the "License")
 //  you may not use this file except in compliance with the License.
@@ -119,6 +119,17 @@ namespace Transmitly.ChannelProvider.Infobip.ConfigurationTests
 			var report = new DeliveryReport(null, null, null, null, null, null, null, null, null, null);
 			var mockBag = new Mock<IEmailExtendedChannelProperties>();
 			mockBag.SetupAllProperties();
+
+			InfobipChannelProviderExtendedProprtiesBuilderExtensions.AddDeliveryReportExtendedPropertiesAdaptor<MockDeliveryReportBag>(null);
+			var result = InfobipChannelProviderConfigurationExtensions.Infobip(report);
+
+			Assert.IsInstanceOfType<MockDeliveryReportBag>(result);
+		}
+
+		[TestMethod]
+		public void DeliveryExtensionShouldStillSupportLegacyTypoMethod()
+		{
+			var report = new DeliveryReport(null, null, null, null, null, null, null, null, null, null);
 
 			InfobipChannelProviderExtendedProprtiesBuilderExtensions.AddDeliveryReportExtendedProprtiesAdaptor<MockDeliveryReportBag>(null);
 			var result = InfobipChannelProviderConfigurationExtensions.Infobip(report);
