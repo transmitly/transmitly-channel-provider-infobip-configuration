@@ -24,6 +24,15 @@ namespace Transmitly.ChannelProvider.Infobip.Configuration
 		public string BasePath { get; set; } = "https://base.infobip.com";
 		public string ApiKeyPrefix { get; set; } = "App";
 		public string UserAgent => _userAgent;
+		/// <summary>
+		/// Reject delivery reports whose X-Hub-Signature doesn't match <see cref="WebhookSecret"/>. Default: true.
+		/// </summary>
+		public bool ValidateDeliveryReportSignature { get; set; } = true;
+		/// <summary>
+		/// Secret key of the HMAC authentication setting (algorithm HMAC_SHA_256) on the Infobip notification profile
+		/// that matches your delivery report URL.
+		/// </summary>
+		public string? WebhookSecret { get; set; }
 
 		private static string GetUserAgent()
 		{
