@@ -14,13 +14,11 @@
 
 using System;
 using System.Threading.Tasks;
-using Transmitly.Channel.Configuration.Voice;
 
 namespace Transmitly.ChannelProvider.Infobip.Configuration.Voice
 {
 	public interface IVoiceExtendedChannelProperties
 	{
-		IVoiceExtendedChannelProperties Adapt(IVoiceChannelConfiguration voice);
 		int? CallTimeout { get; set; }
 		MachineDetection MachineDetection { get; set; }
 		int? MaxDtmf { get; set; }

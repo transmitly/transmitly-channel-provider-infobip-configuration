@@ -13,13 +13,11 @@
 //  limitations under the License.
 
 using System;
-using Transmitly.Channel.Configuration.Sms;
 
 namespace Transmitly.ChannelProvider.Infobip.Configuration.Sms
 {
 	public interface ISmsExtendedDeliveryReportProperties
 	{
-		ISmsExtendedChannelProperties Adapt(ISmsChannelConfiguration sms);
 		string? ApplicationId { get; set; }
 		string? BulkId { get; set; }
 		string? CallbackData { get; set; }

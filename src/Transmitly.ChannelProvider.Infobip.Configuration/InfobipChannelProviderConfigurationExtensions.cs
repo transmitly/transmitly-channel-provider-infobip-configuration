@@ -39,43 +39,73 @@ namespace Transmitly
 		}
 
 		/// <summary>
-		/// Infobip specific settings for email channels.
+		/// Infobip specific settings for an email channel.
 		/// </summary>
 		/// <param name="email">Email Channel.</param>
 		/// <returns>Infobip email properties.</returns>
 		public static IEmailExtendedChannelProperties Infobip(this IEmailChannelConfiguration email)
 		{
-			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.Email.Adapt(email);
+			return new EmailExtendedChannelProperties(Guard.AgainstNull(email).ExtendedProperties);
 		}
 
 		/// <summary>
-		/// Infobip specific settings for Sms channels.
+		/// Infobip specific settings
+		/// </summary>
+		/// <param name="email">Email being dispatched.</param>
+		/// <returns>Infobip email properties.</returns>
+		public static IEmailExtendedChannelProperties Infobip(this IEmail email)
+		{
+			return new EmailExtendedChannelProperties(Guard.AgainstNull(email).ExtendedProperties);
+		}
+
+		/// <summary>
+		/// Infobip specific settings for an sms channel.
 		/// </summary>
 		/// <param name="sms">Sms Channel.</param>
 		/// <returns>Infobip Sms properties.</returns>
 		public static ISmsExtendedChannelProperties Infobip(this ISmsChannelConfiguration sms)
 		{
-			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.Sms.Adapt(sms);
+			return new SmsExtendedChannelProperties(Guard.AgainstNull(sms).ExtendedProperties);
 		}
 
 		/// <summary>
-		/// Infobip specific settings for voice channels.
+		/// Infobip specific settings
+		/// </summary>
+		/// <param name="sms">Sms being dispatched.</param>
+		/// <returns>Infobip Sms properties.</returns>
+		public static ISmsExtendedChannelProperties Infobip(this ISms sms)
+		{
+			return new SmsExtendedChannelProperties(Guard.AgainstNull(sms).ExtendedProperties);
+		}
+
+		/// <summary>
+		/// Infobip specific settings for a voice channel.
 		/// </summary>
 		/// <param name="voice">Voice Channel.</param>
 		/// <returns>Infobip voice properties.</returns>
 		public static IVoiceExtendedChannelProperties Infobip(this IVoiceChannelConfiguration voice)
 		{
-			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.Voice.Adapt(voice);
+			return new VoiceExtendedChannelProperties(Guard.AgainstNull(voice).ExtendedProperties);
 		}
 
 		/// <summary>
-		/// Infobip specific settings for sms delivery reports.
+		/// Infobip specific settings
+		/// </summary>
+		/// <param name="voice">Voice being dispatched.</param>
+		/// <returns>Infobip voice properties.</returns>
+		public static IVoiceExtendedChannelProperties Infobip(this IVoice voice)
+		{
+			return new VoiceExtendedChannelProperties(Guard.AgainstNull(voice).ExtendedProperties);
+		}
+
+		/// <summary>
+		/// Infobip specific values for a delivery report.
 		/// </summary>
 		/// <param name="deliveryReport">Delivery Report.</param>
-		/// <returns>Infobip SMS delivery report properties.</returns>
+		/// <returns>Infobip delivery report properties.</returns>
 		public static IDeliveryReportExtendedProperties Infobip(this DeliveryReport deliveryReport)
 		{
-			return InfobipChannelProviderExtendedProprtiesBuilderExtensions.DeliveryReport.Adapt(deliveryReport);
+			return new DeliveryReportExtendedProperties(deliveryReport);
 		}
 	}
 }

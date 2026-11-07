@@ -12,17 +12,28 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
+using Transmitly.ChannelProvider.Infobip.Configuration.Email;
 using Transmitly.ChannelProvider.Infobip.Configuration.Sms;
 using Transmitly.ChannelProvider.Infobip.Configuration.Voice;
-using Transmitly.Delivery;
 
 namespace Transmitly.ChannelProvider.Infobip.Configuration
 {
+	/// <summary>
+	/// Infobip specific values for a delivery report.
+	/// </summary>
 	public interface IDeliveryReportExtendedProperties
 	{
-		IDeliveryReportExtendedProperties Adapt(DeliveryReport report);
-
+		/// <summary>
+		/// Infobip values for an email delivery report.
+		/// </summary>
+		IEmailExtendedDeliveryReportProperties Email { get; }
+		/// <summary>
+		/// Infobip values for an SMS delivery report.
+		/// </summary>
 		ISmsExtendedDeliveryReportProperties Sms { get; }
+		/// <summary>
+		/// Infobip values for a voice delivery report.
+		/// </summary>
 		IVoiceExtendedDeliveryReportProperties Voice { get; }
 	}
 }
